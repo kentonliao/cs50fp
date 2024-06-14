@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+        <img src="/static/images/iCrypto_logo_L2.png" alt="iCRYPTO_Logo" class="login-logo py-5">
+    
+    
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <input required autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="mb-3">
+                <input required class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input required class="form-control mx-auto w-auto" name="confirmation" placeholder="Password (again)" type="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Register</button>
+            <p class="py-5">Already have an account? <a href="/login">Login</a></p>
+        </form>
+    </main>
+{% endblock %}

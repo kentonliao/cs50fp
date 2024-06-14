@@ -1,0 +1,7 @@
+.login-logo {
+    width: 20%;
+
+    @media (max-width: 720px) {
+        width: 50%;
+    }
+}

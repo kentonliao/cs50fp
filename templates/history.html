@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center"> 
+        <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-start">Symbol</th>
+                    <th class="text-end">Amount</th>
+                    <th class="text-end">Value</th>
+                    <th class="text-end">Transacted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td class="text-start">{{row.symbol}}</td>
+                    <td class="text-end">{{row.amount}}</td>
+                    <td class="text-end">{{row.crpt_value|usd}}</td>
+                    <td class="text-end">{{row.transc_time}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </main>
+{% endblock %}

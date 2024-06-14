@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stop Alert
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center"> 
+        <form action="/stopalert" method="post">
+            <div class="mb-3">
+                <select class="form-select mx-auto w-auto" name="symbol">
+                    <option disabled="" selected="">Symbol</option>
+                        {% for row in rows %}
+                        <option value="{{row.symbol}}">{{row.symbol}} : {{row.price|usd}} +- {{row.change|usd}}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Stop alert</button>
+        </form>
+    </main>
+{% endblock %}

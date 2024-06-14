@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Set Token
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+        
+        <form action="/settoken" method="post">
+            <div class="mb-3">
+                <input required autocomplete="off" autofocus class="form-control mx-auto w-auto" name="linetoken" placeholder="Token" type="text" {{tokenvalue}}>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
+            <p class="py-5">Don't know what to do? <a href="https://notify-bot.line.me/zh_TW/">Know more about LINE Notify</a></p>
+        </form>
+    </main>
+{% endblock %}
