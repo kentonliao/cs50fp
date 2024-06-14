@@ -8,7 +8,7 @@ def send_line_notify(message, token):
     return response.status_code
 
 def main():
-    line_token = 'C6mYWNZkEa9hRwlFyvMpYQDRot1N0wfmi9wlUgUMc9g'
+    line_token = 'your token'
     message = '\nThank you for using iCRYPTO!\nEverything is fine!'
     status = send_line_notify(message, line_token)
     if status == 200:
