@@ -51,7 +51,7 @@ Here is the structure of this project:
 
 I've always wanted a web service to manage my cryptocurrency assets, and the Week 9 problem set "finance" covered most of the logic. However, stock trading and cryptocurrency trading operate differently, and I don't intend to rely on CS50's "training wheels" anymore. So, I learned how to connect to SQLite, applied for CoinMarketCap's API to get real-time cryptocurrency prices, and tried using the LINE Notify API to send price alerts. This is the most important feature of this project.
 
-Below I will introduce the content of each function.
+Below I will explain the content of each function.
 
 - **app.py**: 
   - **after_request()**: This code is borrowed from "finance," primarily to ensure that the response is not cached, using the response method.
@@ -75,4 +75,4 @@ Below I will introduce the content of each function.
   - **getprice()**: Register as a free member of CoinMarketCap, allowing up to 10,000 API calls per month to query real-time cryptocurrency prices. Simply provide the correct code function and it will return the price.
 - **linenotify.py**:
   - **send_line_notify**: There are cost considerations with using the LINE Messaging API, so I chose to use the LINE Notify API instead. However, sending notifications requires the user's token.
-- **pricealert.py**: 
+- **pricealert.py**: This function is responsible for sending periodic cryptocurrency price notifications that meet the specified conditions. First, it retrieves the user-defined symbol and price from the pricealert table and uses the getprice() function to get the latest price. If the latest price is greater than price + change or less than price - change, it is considered a notification-worthy event. The same userid may have multiple such notifications, which are concatenated into a message. The userid is then used to query the users table to find the user's linetoken. The send_line_notify() function is used to send the notifications to each user. Finally, the latest price is updated in the pricealert table for those notifications that were sent, becoming the new reference price for the next check.
